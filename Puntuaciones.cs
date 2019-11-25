@@ -7,7 +7,6 @@ public class Puntuaciones : MonoBehaviour
     // Start is called before the first frame update
     public static Puntuaciones puntuacion;
     public static int puntaje;
-
     int puntajeMaximo;
 
     Text textoPuntaje;
@@ -26,7 +25,12 @@ public class Puntuaciones : MonoBehaviour
     {
         textoPuntaje.text = "Puntaje: " + puntaje;
         textoPuntajeMax.text = "Puntaje Máximo: " + puntajeMaximo;
-        
+        if (Input.GetKey(KeyCode.L))
+        {
+            PlayerPrefs.SetInt("puntajeMaximo", 0);
+
+        }
+
     }
     public void verificarPuntajeMaximo()
     {
@@ -34,5 +38,9 @@ public class Puntuaciones : MonoBehaviour
         {
             PlayerPrefs.SetInt("puntajeMaximo", puntaje);
         }
+    }
+    public void reseteoPuntaje()
+    {
+        PlayerPrefs.SetInt("puntajeMaximo", 0);
     }
 }
